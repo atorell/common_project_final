@@ -57,20 +57,18 @@ li {
 
 /* make space between list items  */
 
-/* make a container with 1 column */
-.container {
-    display: grid;
-    /* gap: 20px; */
-    grid-template-columns: 1fr;
+.large-container .container {
     margin-bottom: 40px;
     border: solid #153462 5px;
     border-radius: 30px;
     padding: 15px;
+    grid-column: 1/-1;
+} 
+
+.large-container {
+    display: grid;
+    grid-template-columns: 1fr;
 }
-
-/* put space between the different groupings */
-
-/* find a color pallette */
 
 body {
     font-family: Arial, sans-serif;
@@ -84,11 +82,17 @@ body {
 } */
 
 header {
-    background-color: #4FA095;
+    background-color: #153462;
+    animation: mymove 5s;
     color: white;
     padding: 20px;
     text-align: center;
     font-size: 24px;
+}
+
+@keyframes mymove {
+    0%   {top: 0px; background: #4FA095; width: 10%;}
+    100% {top: 200px; background: #153462; width: 100%;}
 }
 
 nav ul {
@@ -142,29 +146,30 @@ img {
     margin: 0 auto;
 }
 
-figcaption {
-    margin-bottom: 1px;
+figure figcaption {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .likes {
     display: inline-block;
 }
 
+.food-pics{
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
+    gap: 20px;
+}
 
-/* fix this, but we need this right  */
 @media screen and (prefers-reduced-motion: reduce){ 
-    html{
-        scroll-behavior: auto; /* Removes scroll animation */
+    .gif {
+        display: none;
     }
-  
-    .skip a{
-      -webkit-transition: none; /* sets to default setting */
-      transition: none;        /* sets to default setting */
-     }
-  
-    /*Turn off parallax*/
-    header{
-      background-attachment: initial;
+
+    header {
+        animation: none;
     }
-  }
+}
   
